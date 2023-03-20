@@ -85,26 +85,25 @@
 
 
 
-{{--
-                                                                        <form action="{{ route('select-type') }}" method="GET">
+
                                                                             <div class="col-sm-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="price" class="form-label">ราคา</label>
+                                                                                    <label for="price" class="form-label">เลือกประเภท</label>
 
-                                                                                    <select name='type' id="type">
+                                                                                    <select >
                                                                                         <option value="">กรุณาเลือกประเภทสินค้า</option>
-                                                                                        @foreach ($type as $pro)
-                                                                                        <option value="{{ $pro->id }}">{{ $pro->type_name }}</option>
+                                                                                        @foreach ($typee as $item)
+                                                                                        <option value="{{ $item->id }}">{{ $item->type_name }}</option>
                                                                                         @endforeach
                                                                                     </select>
 
                                                                                 </div>
                                                                             </div>
-                                                                        </form> --}}
 
 
 
-                                                                        <div class="col-sm-6">
+
+                                                                        {{-- <div class="col-sm-6">
                                                                             <div class="form-group">
                                                                                 <label for="category"
                                                                                     class="form-label">ประเภท</label>
@@ -116,7 +115,7 @@
                                                                                     </select>
 
                                                                             </div>
-                                                                        </div>
+                                                                        </div> --}}
 
 
                                                                     </div>

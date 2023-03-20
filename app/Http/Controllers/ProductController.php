@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\TypeProduct;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+
 
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -193,11 +195,16 @@ class ProductController extends Controller
     //     return view('admin.create',compact('type'));
     // }
 
+
+
+
     public function type()
-    {
-        $type = DB::table('type_product')->select('id', 'type_name')->get();
-        return view('admin.create', compact('type'));
+    { {
+            $typee = TypeProduct::all();
+            return view('admin.create', compact('typee'));
+        }
     }
+
 
 
     // public function productList()
@@ -209,9 +216,8 @@ class ProductController extends Controller
     // }
 
 
-//    public function type($type)
-//    {
-//     $type = DB::table('type_products')->get();
-//    }
+    //    public function type($type)
+    //    {
+    //     $type = DB::table('type_products')->get();
+    //    }
 }
-
