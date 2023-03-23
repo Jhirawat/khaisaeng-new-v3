@@ -2,6 +2,47 @@
 
 @section('style')
 <style>
+    .skin-2 .num-in {
+        background: #FFFFFF;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 25px;
+        height: 40px;
+        width: 110px;
+        float: left;
+         }
+
+        .skin-2 .num-in button {
+        width: 40%;
+        display: block;
+        height: 40px;
+        float: left;
+        position: relative;
+        }
+
+        .skin-2 .num-in button:before,
+        .skin-2 .num-in button:after {
+        content: '';
+        position: absolute;
+        background-color: #667780;
+        height: 2px;
+        width: 10px;
+        top: 50%;
+        left: 50%;
+        margin-top: -1px;
+        margin-left: -5px;
+         }
+
+        .skin-2 .num-in button.plus:after {
+        transform: rotate(90deg);
+        }
+
+        .skin-2 .num-in input {
+        float: left;
+        width: 20%;
+        height: 40px;
+        border: none;
+        text-align: center;
+        }
 </style>
 @endsection
 
@@ -20,7 +61,7 @@
                             <h2 class="content-header-title float-left mb-0">ตะกร้าสินค้า</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">หน้าหลัก</a>
+                                    <li class="breadcrumb-item"><a href="{{ route('products') }}">หน้าหลัก</a>
                                     </li>
                                     <li class="breadcrumb-item active">ตะกร้าสินค้า
                                 </ol>
@@ -41,7 +82,7 @@
                                     <div class="card-content">
                                         <div class="item-img text-center">
                                             
-                                                <img src="{{ asset('images/' . $cart->image) }}">
+                                                <img src="{{ asset('images/' . $cart->attributes->image) }}" width="170" height="200">
                                          
                                         </div>
                                         <div class="card-body">
@@ -51,12 +92,25 @@
                                             </div>
                                             <div class="item-quantity">
                                                 <p class="quantity-title">จำนวน</p>
-                                                <div class="input-group quantity-counter-wrapper">
-                                                    <input type="text" class="quantity-counter" value="{{ $cart->quantity }}">
-                                                </div>
+                                                <form action="{{ route('cartUpdate.user') }}" method="POST">
+                                                    @csrf
+                                                    <div class="pl-md-0 pl-2">
+                                                        <div class="num-block skin-2">
+                                                            <div class="num-in">
+                                                                <button class="minus dis"></button>
+                                                                <input type="hidden" name="id"
+                                                                    value="{{ $cart->id }}">
+                                                                <input type="text" class="in-num" readonly
+                                                                    name="quantity"
+                                                                    value="{{ $cart->quantity }}"class="w-6 text-center bg-gray-300" />
+                                                                <button class="plus"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <button type="submit" id="submit">ยืนยัน</button>
+                                                </form>
                                             </div>
-                                            <p class="delivery-date">รายละเอียดเพิ่มเติม</p>
-                                            <p class="quantity-title">{{ $cart->description }}</p>
                                         </div>
                                         <div class="item-options text-center">
                                             <div class="item-wrapper">
@@ -72,7 +126,7 @@
                                             <form action="{{ route('cartremove.user') }}" method="POST">
                                             @csrf
                                             <input type="hidden" value="{{ $cart->id }}" name="id">
-                                           <div class="wishlist remove-wishlist">
+                                           <div class="wishlist">
                                            <button type="submit"><i class="feather icon-x align-middle"></i> ลบจากรายการ</button>
                                             </div> 
                                       
@@ -97,9 +151,9 @@
                                                     Total
                                                 </div>
                                                 <div class="detail-amt">
-                                                {{-- <div>
-                                                    Total: ${{ Cart::getTotal() }}
-                                                </div> --}}
+                                               
+                                                    {{ Cart::getTotal() }} บาท
+                                                
                                                 </div>
                                             </div>
                                             <div class="detail">
@@ -113,7 +167,7 @@
                                             <hr>
                                             <div class="detail">
                                                 <div class="detail-title detail-total">Total</div>
-                                                <div class="detail-amt total-amt">$574</div>
+                                                <div class="detail-amt total-amt">{{ Cart::getTotal() }} บาท</div>
                                             </div>
                                            
                                             <!-- <div class="btn btn-primary btn-block place-order">PLACE ORDER</div> -->
@@ -236,6 +290,39 @@
 
 
     @section('script')
+    <script>$(document).ready(function() {
+                            $('.num-in button').click(function() {
+                                var $input = $(this).parents('.num-block').find('input.in-num');
+                                if ($(this).hasClass('minus')) {
+                                    var count = parseFloat($input.val()) - 1;
 
+                                    count = count < 1 ? 1 : count;
+
+                                    if (count < 2) {
+                                        $(this).addClass('dis');
+                                    } else {
+                                        $(this).removeClass('dis');
+                                    }
+
+                                    $input.val(count);
+
+                                    // $('#submit').click();
+                                } else {
+                                    var count = parseFloat($input.val()) + 1
+                                    $input.val(count);
+
+                                    // $('#submit').click();
+
+                                    if (count > 1) {
+                                        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
+                                    }
+                                }
+
+                                $input.change();
+                                return false;
+                            });
+
+                        });
+                    </script>
 @endsection
 

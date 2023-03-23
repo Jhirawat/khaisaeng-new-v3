@@ -318,30 +318,12 @@
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
                                 <i class="fa fa-shopping-cart" style="font-size: 1.5rem;"></i>
                                 {{-- <i class="ficon feather icon-bell"></i> --}}
-                                <span class="badge badge-pill badge-primary badge-up bellcount">0</span>
+                                <span class="badge badge-pill badge-primary badge-up bellcount">{{ Cart::getTotalQuantity() }}</span>
 
 
                             </a>
 
-                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-
-                                <li class="dropdown-menu-header">
-                                    <div class="dropdown-header m-0 p-2">
-                                        <h3 class="white"> <strong class="bellcount">0</strong> ใหม่</h3><span
-                                            class="notification-title">การแจ้งเตือน</span>
-                                    </div>
-                                </li>
-
-                                <li class="scrollable-container media-list" id="data_notify">
-                                </li>
-                                {{-- <form action="{{ route('update.read') }}" method="GET">
-                                    @csrf
-                                    <input type="text" value="1"id="status_read" name="status_read" hidden>
-                                    <li class="dropdown-menu-footer">
-                                        <a class="dropdown-item p-1 text-center" onclick="readAll()">อ่านทั้งหมด</a>
-                                    </li>
-                                </form> --}}
-                            </ul>
+                           
                         </li>
 
                         <li class="dropdown dropdown-user nav-item"><a

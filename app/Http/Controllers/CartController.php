@@ -123,7 +123,7 @@ class CartController extends Controller
 
         session()->flash('success', 'Item Cart is Updated Successfully !');
 
-        return redirect()->route('cart.list');
+        return redirect()->route('cartList.user');
     }
 
     public function removeCart(Request $request)

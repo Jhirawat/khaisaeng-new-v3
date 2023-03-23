@@ -108,3 +108,4 @@ Route::get('cart', [App\Http\Controllers\CartController::class, 'cartList'])->na
 Route::post('/cart-add', [App\Http\Controllers\CartController::class, 'addToCart'])->name('cartAdd.user');
 Route::post('/cart-remove', [App\Http\Controllers\CartController::class, 'removeCart'])->name('cartremove.user');
 Route::post('/cart-clear', [App\Http\Controllers\CartController::class, 'clearAllCart'])->name('cartClear.user');
+Route::post('/cart-update', [App\Http\Controllers\CartController::class, 'updateCart'])->name('cartUpdate.user');
