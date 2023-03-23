@@ -30,7 +30,7 @@ class ProductController extends Controller
     { {
             $products = Product::all();
 
-            return view('user.product', compact('products','type'));
+            return view('user.product', compact('products'));
         }
     }
 

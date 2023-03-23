@@ -31,7 +31,6 @@
                 </div>
             </div>
             <div class="content-body">
-                <form action="#" class="icons-tab-steps checkout-tab-steps wizard-circle">
 
                     <!-- Checkout Customer Address Starts -->
                     <h6><i class="step-icon step feather icon-home"></i>ที่อยู่ของคุณ</h6>
@@ -43,10 +42,11 @@
                                     <h4 class="card-title">เพิ่มที่อยู่ใหม่</h4>
                                     <!-- <p class="text-muted mt-25">Be sure to check "Deliver to this address" when you have finished</p> -->
                                 </div>
+                                  <div class="card-content">
+                                    <div class="card-body">
                                 <form action="{{ route('store.useraddress') }}" method="POST" enctype="multipart/form-data">
                                 <fieldset>                       
-                                <div class="card-content">
-                                    <div class="card-body">
+                                    @csrf
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
@@ -108,21 +108,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <button style="background-color: #257d0f ;color:white" class="btn" 
+                                href=""  
+                                type="submit">บันทึกที่อยู่</button>
                                     </div>
                                 </div>
                                 </fieldset>
-                                <button style="background-color: #257d0f ;color:white" class="btn" 
-                                href=""  
-                                type="submit">บันทึกที่อยู่</button>
+                                
                                          </div>
                                  </form>
                             
                             </section>
                         </fieldset>
-                    </form>
+                
                     <!-- Checkout Customer Address Ends -->
-
-                     
+                    
+                     <!-- ShowAddressLL start -->
                      <div class="row justify-content-center">
                          <div class="col-12">
                      <section id="ecommerce-products" class="grid-view">
@@ -165,7 +166,7 @@
       
                         </div>
                     </section>
-                        </div></div></div>
+                        </div>
                 
 
             </div>
@@ -201,7 +202,7 @@
             let address_type = document.getElementById('address_type')
             address_type.value = data.address_type;  
     }
-    console.log(data);
+    // console.log(data);
 </script>
 @endsection
 
