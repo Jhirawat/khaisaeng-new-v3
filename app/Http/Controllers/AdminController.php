@@ -22,7 +22,10 @@ class AdminController extends Controller
 
     public function create()
     {
-        return view('admin.create');
+        $type = TypeProduct::all();
+        
+
+        return view('admin.create',compact('type'));
     }
 
     /**

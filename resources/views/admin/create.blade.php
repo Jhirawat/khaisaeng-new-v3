@@ -90,9 +90,9 @@
                                                                                 <div class="form-group">
                                                                                     <label for="price" class="form-label">เลือกประเภท</label>
 
-                                                                                    <select >
+                                                                                    <select class="form-control" >
                                                                                         <option value="">กรุณาเลือกประเภทสินค้า</option>
-                                                                                        @foreach ($typee as $item)
+                                                                                        @foreach ($type as $item)
                                                                                         <option value="{{ $item->id }}">{{ $item->type_name }}</option>
                                                                                         @endforeach
                                                                                     </select>
