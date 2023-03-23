@@ -30,7 +30,7 @@ class ProductController extends Controller
     { {
             $products = Product::all();
 
-            return view('user.product', compact('products','type'));
+            return view('user.product', compact('products'));
         }
     }
 
@@ -198,12 +198,7 @@ class ProductController extends Controller
 
 
 
-    public function type()
-    { {
-            $type = TypeProduct::all();
-            return view('admin.create', compact('type'));
-        }
-    }
+
 
 
 
