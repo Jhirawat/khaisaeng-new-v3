@@ -86,6 +86,7 @@
     @php
         $count = count($products);
     @endphp
+    ///ตัวนับproduct
 
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -139,21 +140,27 @@
                                         </div>
                                     </div>
                                     <div class="view-options">
-                                        <select class="price-options form-control" id="ecommerce-price-options">
-                                            <option selected>เลือกประเภท</option>
-                                            <option value="1">เครื่องดื่มผลไม้</option>
-                                            <option value="2">เครื่องดื่มแอลกอฮอล์</option>
-                                            <option value="2">สินค้าแปรรูปแบบแห้ง</option>
-                                            <option value="2">แยมผลไม้</option>
-                                        </select>
-                                        <!-- <div class="view-btn-option">
+                                        {{-- <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="category" class="form-label">เลือกประเภท</label>
+
+                                                <select class="form-control" name="category">
+                                                    <option value="">กรุณาเลือกประเภทสินค้า</option>
+                                                    @foreach ($type as $item)
+                                                    <option value="{{ $item->type_name }}">{{ $item->type_name }}</option>
+                                                    @endforeach
+                                                </select>
+
+                                            </div>
+                                        </div> --}}
+                                         {{-- <div class="view-btn-option">
                                             <button class="btn btn-white view-btn grid-view-btn active">
                                                 <i class="feather icon-grid"></i>
                                             </button>
                                             <button class="btn btn-white list-view-btn view-btn">
                                                 <i class="feather icon-list"></i>
                                             </button>
-                                        </div> -->
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

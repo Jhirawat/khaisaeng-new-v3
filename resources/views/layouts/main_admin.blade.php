@@ -503,7 +503,7 @@
                         style="font-size: 18px">รายการสั่งซื้อ</span></a>
             </li>
 
-                <li class="{{ Request::routeIs('products.list', 'add.product') ? 'active' : '' }} nav-item">
+                <li class="{{ Request::routeIs('products.list', 'create') ? 'active' : '' }} nav-item">
                     <a href=""><i class="bi bi-box-seam"style="margin-top: 3px;"></i><span class="menu-title"
                             data-i18n="Todo"style="font-size: 18px; ">สินค้า</span></a>
                     <ul class="menu-content">
@@ -512,8 +512,8 @@
                                     style="font-size: 1.2rem;"></i><span class="menu-item"
                                     data-i18n="Shop">รายการสินค้า</span></a>
                         </li>
-                        <li class="{{ Request::routeIs('add.product') ? 'active' : '' }} nav-item"><a
-                                href="{{ route('add.product') }}"><i class="feather icon-circle"
+                        <li class="{{ Request::routeIs('create') ? 'active' : '' }} nav-item"><a
+                                href="{{ route('create') }}"><i class="feather icon-circle"
                                     style="font-size: 1.2rem;"></i><span class="menu-item"
                                     data-i18n="Shop">เพิ่มสินค้า</span></a>
                         </li>

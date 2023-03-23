@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TypeProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,12 +50,15 @@ class HomeController extends Controller
         if (Auth::user()->email != 'admin@poomji.com') {
             return redirect('/home');
         } else {
-            return view('create');
+            return view('admin.create');
         }
     }
     public function create()
     {
-        return view('admin.create');
+        $type = TypeProduct::all();
+
+
+        return view('admin.create',compact('type'));
     }
 
     public function adminorder()
@@ -69,4 +73,5 @@ class HomeController extends Controller
     {
         return view('order');
     }
+
 }

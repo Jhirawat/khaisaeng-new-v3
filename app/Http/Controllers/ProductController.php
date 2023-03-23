@@ -215,4 +215,13 @@ class ProductController extends Controller
     //    {
     //     $type = DB::table('type_products')->get();
     //    }
+
+
+    public function type()
+    {
+        $type = TypeProduct::all();
+
+
+        return view('user.product',compact('type'));
+    }
 }

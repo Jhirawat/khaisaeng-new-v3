@@ -18,12 +18,14 @@ class AdminController extends Controller
     {
         $product = Product::all();
         return view('admin', compact('product'));
+
+
     }
 
     public function create()
     {
         $type = TypeProduct::all();
-        
+
 
         return view('admin.create',compact('type'));
     }
@@ -82,6 +84,7 @@ class AdminController extends Controller
     {
         //
     }
+
 
 
 }

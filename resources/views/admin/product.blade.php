@@ -153,6 +153,7 @@
                                                             <td>{{ $item->price }}</td>
                                                             <td>{{ $item->description }}</td>
                                                             <td>{{ $item->category }}</td>
+                                                            {{-- <td>{{ $item->type_name }}</td> --}}
                                                             <td>
 
 
@@ -178,7 +179,7 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
-                                                 
+
                                                 </tbody>
                                             </table>
                                         </div>

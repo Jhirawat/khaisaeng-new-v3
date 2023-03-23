@@ -36,7 +36,7 @@ Route::get('select-type', [App\Http\Controllers\ProductController::class, 'type'
 
 
 
-Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
+// Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
 Route::post('/store', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
 Route::get('/admin-show', [App\Http\Controllers\ProductController::class, 'show'])->name('admin.show');
 Route::post('/admin-update', [App\Http\Controllers\ProductController::class, 'update'])->name('admin.update');
@@ -58,8 +58,7 @@ Route::post('/admin-update', [App\Http\Controllers\ProductController::class, 'up
 
 Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('ordero');
 Route::get('/order.info', [App\Http\Controllers\OrderInfoController::class, 'index'])->name('order.info');
-
-Route::get('/add-product', [App\Http\Controllers\AdminController::class, 'create'])->name('add.product');
+// Route::get('/add-product', [App\Http\Controllers\AdminController::class, 'create'])->name('add.product');
 // Route::get('/list-product', [App\Http\Controllers\ProductController::class, 'index'])->name('list.product');
 
 

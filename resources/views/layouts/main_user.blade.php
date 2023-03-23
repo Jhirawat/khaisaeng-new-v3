@@ -64,6 +64,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/semi-dark-layout.css') }}">
 
+
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css"
@@ -315,9 +316,13 @@
 
                         <li class="dropdown dropdown-notification nav-item">
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
-                                <i class="ficon feather icon-bell"></i>
+                                <i class="fa fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                                {{-- <i class="ficon feather icon-bell"></i> --}}
                                 <span class="badge badge-pill badge-primary badge-up bellcount">0</span>
+
+
                             </a>
+
                             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
 
                                 <li class="dropdown-menu-header">
@@ -516,7 +521,7 @@
                         style="font-size: 18px">ตะกร้าสินค้า</span></a>
             </li>
 
-               
+
                         </li>
             <li class="{{ Request::routeIs('') ? 'active' : '' }} nav-item"><a
                     href="{{ route('showAddress') }}"><i class="fa fa-map-marker"
@@ -524,7 +529,7 @@
                         style="font-size: 18px">ที่อยู่</span></a>
             </li>
 
-                
+
                 </li>
                 <li class="{{ Request::routeIs('') ? 'active' : '' }} nav-item">
                     <a href=""><i class="fa fa-line-chart"style="margin-top: 3px;"></i><span
@@ -626,6 +631,7 @@
     <script src="{{ asset('app-assets/js/core/app.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js') }}"></script>
+    <script src="{{ asset('app-assets/js/scripts/pages/app-ecommerce-shop.js') }}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
@@ -645,6 +651,7 @@
     <script src="{{ asset('app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/charts/chart-chartjs.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/pages/app-ecommerce-shop.js') }}"></script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script type="text/javascript" src="{{ asset('bootstrap-datepicker-thai/js/bootstrap-datepicker.js') }}"></script>

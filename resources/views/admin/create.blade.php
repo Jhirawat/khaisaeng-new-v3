@@ -88,12 +88,12 @@
 
                                                                             <div class="col-sm-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="price" class="form-label">เลือกประเภท</label>
+                                                                                    <label for="category" class="form-label">เลือกประเภท</label>
 
-                                                                                    <select class="form-control" >
+                                                                                    <select class="form-control" name="category">
                                                                                         <option value="">กรุณาเลือกประเภทสินค้า</option>
                                                                                         @foreach ($type as $item)
-                                                                                        <option value="{{ $item->id }}">{{ $item->type_name }}</option>
+                                                                                        <option value="{{ $item->type_name }}">{{ $item->type_name }}</option>
                                                                                         @endforeach
                                                                                     </select>
 
@@ -101,9 +101,9 @@
                                                                             </div>
 
 
+{{--
 
-
-                                                                        {{-- <div class="col-sm-6">
+                                                                        <div class="col-sm-6">
                                                                             <div class="form-group">
                                                                                 <label for="category"
                                                                                     class="form-label">ประเภท</label>
