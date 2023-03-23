@@ -87,7 +87,7 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('cart', compact('cartItems'));
+        return view('user.cart', compact('cartItems'));
     }
 
 
@@ -105,7 +105,7 @@ class CartController extends Controller
         ]);
         session()->flash('success', 'Product is Added to Cart Successfully !');
 
-        return redirect()->route('products.list');
+        return redirect()->route('products');
     }
 
     public function updateCart(Request $request)
@@ -131,7 +131,7 @@ class CartController extends Controller
         \Cart::remove($request->id);
         session()->flash('success', 'Item Cart Remove Successfully !');
 
-        return redirect()->route('cart.list');
+        return redirect()->route('cartList.user');
     }
 
     public function clearAllCart()
@@ -140,7 +140,7 @@ class CartController extends Controller
 
         session()->flash('success', 'All Item Cart Clear Successfully !');
 
-        return redirect()->route('cart.list');
+        return redirect()->route('cartList.user');
     }
 
 

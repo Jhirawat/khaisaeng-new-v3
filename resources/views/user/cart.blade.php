@@ -30,49 +30,58 @@
                 </div>
             </div>
             <div class="content-body">
-                <form action="#" class="icons-tab-steps checkout-tab-steps wizard-circle">
+               
                     <!-- Checkout Place order starts -->
                     <h6><i class="step-icon step feather icon-shopping-cart"></i> ตะกร้าสินค้า</h6>
                     <fieldset class="checkout-step-1 px-0">
                         <section id="place-order" class="list-view product-checkout">
                             <div class="checkout-items">
+                                @foreach ($cartItems as $cart)
                                 <div class="card ecommerce-card">
                                     <div class="card-content">
                                         <div class="item-img text-center">
-                                            <a href="app-ecommerce-details.html">
-                                                <img src="../../../app-assets/images/pages/eCommerce/9.png" alt="img-placeholder">
-                                            </a>
+                                            
+                                                <img src="{{ asset('images/' . $cart->image) }}">
+                                         
                                         </div>
                                         <div class="card-body">
                                             <div class="item-name">
-                                                <a href="app-ecommerce-details.html">Amazon - Fire TV Stick with Alexa Voice Remote - Black</a>
+                                                {{ $cart->name }}
                                                 <span></span>
                                             </div>
                                             <div class="item-quantity">
-                                                <p class="quantity-title">Quantity</p>
+                                                <p class="quantity-title">จำนวน</p>
                                                 <div class="input-group quantity-counter-wrapper">
-                                                    <input type="text" class="quantity-counter" value="1">
+                                                    <input type="text" class="quantity-counter" value="{{ $cart->quantity }}">
                                                 </div>
                                             </div>
                                             <p class="delivery-date">รายละเอียดเพิ่มเติม</p>
+                                            <p class="quantity-title">{{ $cart->description }}</p>
                                         </div>
                                         <div class="item-options text-center">
                                             <div class="item-wrapper">
                                                 <div class="item-cost">
                                                     <h6 class="item-price">
-                                                        $39.99
+                                                        {{ $cart->price }} บาท
                                                     </h6>
                                                     <p class="shipping">
                                                         <i class="feather icon-shopping-cart"></i> ส่งฟรี
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="wishlist remove-wishlist">
-                                                <i class="feather icon-x align-middle"></i> ลบจากรายการ
-                                            </div>  
+                                            <form action="{{ route('cartremove.user') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $cart->id }}" name="id">
+                                           <div class="wishlist remove-wishlist">
+                                           <button type="submit"><i class="feather icon-x align-middle"></i> ลบจากรายการ</button>
+                                            </div> 
+                                      
+                                        </form>
+                                             
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                             <div class="checkout-options">
                                 <div class="card">
@@ -88,7 +97,9 @@
                                                     Total
                                                 </div>
                                                 <div class="detail-amt">
-                                                    $598
+                                                {{-- <div>
+                                                    Total: ${{ Cart::getTotal() }}
+                                                </div> --}}
                                                 </div>
                                             </div>
                                             <div class="detail">
@@ -104,10 +115,17 @@
                                                 <div class="detail-title detail-total">Total</div>
                                                 <div class="detail-amt total-amt">$574</div>
                                             </div>
+                                           
                                             <!-- <div class="btn btn-primary btn-block place-order">PLACE ORDER</div> -->
                                         </div>
                                     </div>
                                 </div>
+                                <div>
+                                                <form action="{{ route('cartClear.user') }}" method="POST">
+                                                    @csrf
+                                                    <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
+                                                </form>
+                                            </div>
                             </div>
                         </section>
                     </fieldset>

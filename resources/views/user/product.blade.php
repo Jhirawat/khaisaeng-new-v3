@@ -18,6 +18,47 @@
             top: 0;
             z-index: 11;
         }
+        .skin-2 .num-in {
+        background: #FFFFFF;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 25px;
+        height: 40px;
+        width: 110px;
+        float: left;
+         }
+
+        .skin-2 .num-in button {
+        width: 40%;
+        display: block;
+        height: 40px;
+        float: left;
+        position: relative;
+        }
+
+        .skin-2 .num-in button:before,
+        .skin-2 .num-in button:after {
+        content: '';
+        position: absolute;
+        background-color: #667780;
+        height: 2px;
+        width: 10px;
+        top: 50%;
+        left: 50%;
+        margin-top: -1px;
+        margin-left: -5px;
+         }
+
+        .skin-2 .num-in button.plus:after {
+        transform: rotate(90deg);
+        }
+
+        .skin-2 .num-in input {
+        float: left;
+        width: 20%;
+        height: 40px;
+        border: none;
+        text-align: center;
+        }
         @media(max-width:767px) {
         .mobile {
             font-size: 10px;
@@ -217,18 +258,42 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="item-options text-center">
-                                    <div class="item-wrapper">
-                                        <div class="item-cost">
-                                            <h6 class="item-price">
-                                            {{ $item->price }} Baht
-                                            </h6>
-                                        </div>
-                                    </div>
+                                
                                     <div class="cart">
-                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to
-                                            cart</span> <a href="/home"
-                                            class="view-in-cart d-none">View In Cart</a>
+                                        <form action="{{ route('cartAdd.user') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="item-options text-center">
+                                            <div class="card-body">    
+                                            <div class="item-wrapper">
+                                                <div>
+                                                <div class="num-block skin-2">
+                                                    <div class="num-in">
+                                                        <button class="minus dis"></button>
+                                                        <input type="hidden" value="{{ $item->id }}" name="id">
+                                                        <input type="hidden" value="{{ $item->name }}" name="name">
+                                                        <input type="hidden" value="{{ $item->price }}" name="price">
+                                                        <input type="hidden" value="{{ $item->image }}" name="image">
+                                                        <input type="hidden" value="1" name="quantity">
+
+                                                        <input type="text" class="in-num" value="1" readonly name="quantity" value="{{ $item->quantity }}" class="w-6 text-center bg-gray-300" />
+
+                                                        <button class="plus"></button>
+
+                                                    </div>
+                                                </div> 
+                                                </div>
+                                            </div>
+                                            <div class="item-wrapper">
+                                                <div>
+                                                <button class="text-white bg-blue-800 rounded" 
+                                            style="background-color: #9c6d5a;height: 40px;width: 120px;padding: 0; 
+                                            color:white;border-radius:25px;" type="submit"><i class="feather icon-shopping-cart"></i>ใส่ตระกร้า</button> 
+                                                </div>
+                                            </div> 
+                                            </div> 
+                                            <hr>
+                                        </form>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -473,4 +538,38 @@
                         });
                     </script>
                     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+                    <script>$(document).ready(function() {
+                            $('.num-in button').click(function() {
+                                var $input = $(this).parents('.num-block').find('input.in-num');
+                                if ($(this).hasClass('minus')) {
+                                    var count = parseFloat($input.val()) - 1;
+
+                                    count = count < 1 ? 1 : count;
+
+                                    if (count < 2) {
+                                        $(this).addClass('dis');
+                                    } else {
+                                        $(this).removeClass('dis');
+                                    }
+
+                                    $input.val(count);
+
+                                    // $('#submit').click();
+                                } else {
+                                    var count = parseFloat($input.val()) + 1
+                                    $input.val(count);
+
+                                    // $('#submit').click();
+
+                                    if (count > 1) {
+                                        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
+                                    }
+                                }
+
+                                $input.change();
+                                return false;
+                            });
+
+                        });
+                    </script>
                 @endsection

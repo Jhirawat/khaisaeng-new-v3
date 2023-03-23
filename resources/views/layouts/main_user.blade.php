@@ -516,7 +516,7 @@
                             style="font-size: 18px">หน้าหลัก</span></a>
                 </li>
                 <li class="{{ Request::routeIs('') ? 'active' : '' }} nav-item"><a
-                    href="{{ route('cart.user') }}"><i class="fa fa-shopping-basket"
+                    href="{{ route('cartList.user') }}"><i class="fa fa-shopping-basket"
                         style="margin-top: 3px;"></i><span class="menu-title" data-i18n="Email"
                         style="font-size: 18px">ตะกร้าสินค้า</span></a>
             </li>

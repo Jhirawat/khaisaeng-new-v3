@@ -91,7 +91,6 @@ Route::put('address-update', [App\Http\Controllers\AddressController::class, 'up
 //user
 
 Route::get('/home', [App\Http\Controllers\ProductController::class, 'product'])->name('products');
-Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.user');
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 Route::get('/history-shopping', [App\Http\Controllers\ListUserHisController::class, 'index'])->name('listhis');
 
@@ -103,3 +102,9 @@ Route::post('/address-user-store', [App\Http\Controllers\AddressUserController::
 //user-Bill
 Route::get('/Bill-Info', [App\Http\Controllers\BillUserInfoController::class, 'index'])->name('billUserInfo');
 Route::get('/List-Bill', [App\Http\Controllers\BillUserController::class, 'index'])->name('billUserList');
+
+//user-cart
+Route::get('cart', [App\Http\Controllers\CartController::class, 'cartList'])->name('cartList.user');
+Route::post('/cart-add', [App\Http\Controllers\CartController::class, 'addToCart'])->name('cartAdd.user');
+Route::post('/cart-remove', [App\Http\Controllers\CartController::class, 'removeCart'])->name('cartremove.user');
+Route::post('/cart-clear', [App\Http\Controllers\CartController::class, 'clearAllCart'])->name('cartClear.user');
