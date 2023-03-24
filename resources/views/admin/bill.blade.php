@@ -68,9 +68,9 @@
                                     <div class="col text-right">{{ date('d/m/Y') }}</div>
                                 </div>
 
-                                {{-- <div> <button onclick="generateNumber()"><h5>ORDER</button></h5>
+                                <div> <button onclick="generateNumber()"><h5>ORDER</button></h5>
                                     <p class="text" id="result"></p>
-                                </div> --}}
+                                </div>
 
                             </div>
                         </div>

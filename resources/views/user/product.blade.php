@@ -137,96 +137,17 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">ร้านค้า</h2>
-                            <div class="breadcrumb-wrapper col-12">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="home">หน้าหลัก</a>
-                                    </li>
-
-                                    <li class="breadcrumb-item active">ร้านค้า
-                                    </li>
-                                </ol>
-                            </div>
+                            {{-- <h2 class="content-header-title float-left mb-0">  {{ $count }} รายการสินค้า</h2> --}}
+                            <div class="search-results">
+                                {{ $count }} รายการสินค้า
+                                </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrum-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="feather icon-settings"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                    href="#">Chat</a><a class="dropdown-item" href="#">Email</a><a
-                                    class="dropdown-item" href="#">Calendar</a></div>
-                        </div>
-                    </div>
-                </div> -->
+
             </div>
             <div class="content-detached content-center">
                 <div class="content-body">
-                    <!-- Ecommerce Content Section Starts -->
-                    <section id="ecommerce-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="ecommerce-header-items">
-                                    <div class="result-toggler">
-                                        <button class="navbar-toggler shop-sidebar-toggler" type="button"
-                                            data-toggle="collapse">
-                                            <span class="navbar-toggler-icon d-block d-lg-none"><i
-                                                    class="feather icon-menu"></i></span>
-                                        </button>
-                                        <div class="search-results">
-                                        {{ $count }} results found
-                                        </div>
-                                    </div>
-                                    <div class="view-options">
-                                        {{-- <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="category" class="form-label">เลือกประเภท</label>
-
-                                                <select class="form-control" name="category">
-                                                    <option value="">กรุณาเลือกประเภทสินค้า</option>
-                                                    @foreach ($type as $item)
-                                                    <option value="{{ $item->type_name }}">{{ $item->type_name }}</option>
-                                                    @endforeach
-                                                </select>
-
-                                            </div>
-                                        </div> --}}
-                                         {{-- <div class="view-btn-option">
-                                            <button class="btn btn-white view-btn grid-view-btn active">
-                                                <i class="feather icon-grid"></i>
-                                            </button>
-                                            <button class="btn btn-white list-view-btn view-btn">
-                                                <i class="feather icon-list"></i>
-                                            </button>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Ecommerce Content Section Starts -->
-                    <!-- background Overlay when sidebar is shown  starts-->
-                    <div class="shop-content-overlay"></div>
-                    <!-- background Overlay when sidebar is shown  ends-->
-
-                    <!-- Ecommerce Search Bar Starts -->
-                    <section id="ecommerce-searchbar">
-                        <div class="row mt-1">
-                            <div class="col-sm-12">
-                                <fieldset class="form-group position-relative">
-                                    <input type="text" class="form-control search-product" id="iconLeft5"
-                                        placeholder="Search here">
-                                    <div class="form-control-position">
-                                        <i class="feather icon-search"></i>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Ecommerce Search Bar Ends -->
 
                     <!-- Ecommerce Products Starts -->
                     <div class="container">
@@ -258,12 +179,12 @@
                                         </p>
                                     </div>
                                 </div>
-                                
+
                                     <div class="cart">
                                         <form action="{{ route('cartAdd.user') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="item-options text-center">
-                                            <div class="card-body">    
+                                            <div class="card-body">
                                             <div class="item-wrapper">
                                                 <div>
                                                 <div class="num-block skin-2">
@@ -280,20 +201,20 @@
                                                         <button class="plus"></button>
 
                                                     </div>
-                                                </div> 
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item-wrapper">
                                                 <div>
-                                                <button class="text-white bg-blue-800 rounded" 
-                                            style="background-color: #9c6d5a;height: 40px;width: 120px;padding: 0; 
-                                            color:white;border-radius:25px;" type="submit"><i class="feather icon-shopping-cart"></i>ใส่ตระกร้า</button> 
+                                                <button class="text-white bg-blue-800 rounded"
+                                            style="background-color: #9c6d5a;height: 40px;width: 120px;padding: 0;
+                                            color:white;border-radius:25px;" type="submit"><i class="feather icon-shopping-cart"></i>ใส่ตระกร้า</button>
                                                 </div>
-                                            </div> 
-                                            </div> 
+                                            </div>
+                                            </div>
                                             <hr>
                                         </form>
-                                        
+
                                     </div>
                                 </div>
                             </div>

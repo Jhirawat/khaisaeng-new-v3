@@ -43,7 +43,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/select/select2.min.css') }}">
     <link rel="stylesheet" type="text/css"href="{{ asset('app-assets/css/core/menu/menu-types/horizontal-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/toastr.css') }}">
 
 
@@ -82,7 +83,8 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-user.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/aggrid.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/menu/menu-types/horizontal-menu.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('app-assets/css/core/menu/menu-types/horizontal-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-gradient.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-ecommerce-shop.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/plugins/forms/wizard.css') }}">
@@ -314,17 +316,26 @@
                     </div>
                     <ul class="nav navbar-nav float-right">
 
-                        <li class="dropdown dropdown-notification nav-item">
+                        {{-- <li class="dropdown dropdown-notification nav-item">
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
                                 <i class="fa fa-shopping-cart" style="font-size: 1.5rem;"></i>
-                                {{-- <i class="ficon feather icon-bell"></i> --}}
                                 <span class="badge badge-pill badge-primary badge-up bellcount">{{ Cart::getTotalQuantity() }}</span>
-
-
                             </a>
+                        </li> --}}
 
-                           
+
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a href="{{ route('cartList.user') }}">
+                                <i class="fa fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                                <span class="badge badge-pill badge-primary badge-up bellcount">{{ Cart::getTotalQuantity() }}</span>
+                            </a>
                         </li>
+
+                        {{-- <li class="{{ Request::routeIs('') ? 'active' : '' }} nav-item"><a
+                            href="{{ route('cartList.user') }}"><i class="fa fa-shopping-basket"
+                                style="margin-top: 3px;"></i><span class="menu-title" data-i18n="Email"
+                                style="font-size: 18px">ตะกร้าสินค้า</span></a>
+                    </li> --}}
 
                         <li class="dropdown dropdown-user nav-item"><a
                                 class="dropdown-toggle nav-link dropdown-user-link" href="#"
@@ -498,18 +509,18 @@
                             style="font-size: 18px">หน้าหลัก</span></a>
                 </li>
                 <li class="{{ Request::routeIs('') ? 'active' : '' }} nav-item"><a
-                    href="{{ route('cartList.user') }}"><i class="fa fa-shopping-basket"
-                        style="margin-top: 3px;"></i><span class="menu-title" data-i18n="Email"
-                        style="font-size: 18px">ตะกร้าสินค้า</span></a>
-            </li>
+                        href="{{ route('cartList.user') }}"><i class="fa fa-shopping-basket"
+                            style="margin-top: 3px;"></i><span class="menu-title" data-i18n="Email"
+                            style="font-size: 18px">ตะกร้าสินค้า</span></a>
+                </li>
 
 
-                        </li>
-            <li class="{{ Request::routeIs('') ? 'active' : '' }} nav-item"><a
-                    href="{{ route('showAddress') }}"><i class="fa fa-map-marker"
-                        style="margin-top: 3px;"></i><span class="menu-title" data-i18n="Email"
-                        style="font-size: 18px">ที่อยู่</span></a>
-            </li>
+                </li>
+                <li class="{{ Request::routeIs('') ? 'active' : '' }} nav-item"><a
+                        href="{{ route('showAddress') }}"><i class="fa fa-map-marker"
+                            style="margin-top: 3px;"></i><span class="menu-title" data-i18n="Email"
+                            style="font-size: 18px">ที่อยู่</span></a>
+                </li>
 
 
                 </li>
@@ -518,13 +529,14 @@
                             class="menu-title" data-i18n="Calender"style="font-size: 18px; ">ประวัตืการสั้งซื้อ
                         </span></a>
                     <ul class="menu-content">
-                        <li class="{{ Request::routeIs('listhis') ? 'active' : '' }} nav-item"><a href="{{ route('listhis') }}"><i
-                                    class="feather icon-circle" style="font-size: 1.2rem;"></i><span
+                        <li class="{{ Request::routeIs('listhis') ? 'active' : '' }} nav-item"><a
+                                href="{{ route('listhis') }}"><i class="feather icon-circle"
+                                    style="font-size: 1.2rem;"></i><span
                                     class="menu-item">ประวัตืการสั้งซื้อ</span></a>
                         </li>
                         <li class="{{ Request::routeIs('billUserList') ? 'active' : '' }} nav-item"><a
-                                href="{{ route('billUserList') }}"><i class="feather icon-circle" style="font-size: 1.2rem;"></i><span
-                                    class="menu-item">ใบเสร็จ</span></a>
+                                href="{{ route('billUserList') }}"><i class="feather icon-circle"
+                                    style="font-size: 1.2rem;"></i><span class="menu-item">ใบเสร็จ</span></a>
                         </li>
                     </ul>
                 </li>
@@ -654,4 +666,3 @@
 <!-- END: Body-->
 
 </html>
-

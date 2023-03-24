@@ -1,63 +1,66 @@
 @extends('layouts.main_user')
 
 @section('style')
-<style>
-    .skin-2 .num-in {
-        background: #FFFFFF;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 25px;
-        height: 40px;
-        width: 110px;
-        float: left;
-         }
+    <style>
+        .skin-2 .num-in {
+            background: #FFFFFF;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+            border-radius: 25px;
+            height: 40px;
+            width: 110px;
+            float: left;
+        }
 
         .skin-2 .num-in button {
-        width: 40%;
-        display: block;
-        height: 40px;
-        float: left;
-        position: relative;
+            width: 40%;
+            display: block;
+            height: 40px;
+            float: left;
+            position: relative;
         }
 
         .skin-2 .num-in button:before,
         .skin-2 .num-in button:after {
-        content: '';
-        position: absolute;
-        background-color: #667780;
-        height: 2px;
-        width: 10px;
-        top: 50%;
-        left: 50%;
-        margin-top: -1px;
-        margin-left: -5px;
-         }
+            content: '';
+            position: absolute;
+            background-color: #667780;
+            height: 2px;
+            width: 10px;
+            top: 50%;
+            left: 50%;
+            margin-top: -1px;
+            margin-left: -5px;
+        }
 
         .skin-2 .num-in button.plus:after {
-        transform: rotate(90deg);
+            transform: rotate(90deg);
         }
 
         .skin-2 .num-in input {
-        float: left;
-        width: 20%;
-        height: 40px;
-        border: none;
-        text-align: center;
+            float: left;
+            width: 20%;
+            height: 40px;
+            border: none;
+            text-align: center;
         }
-</style>
+
+
+
+    </style>
 @endsection
 
 @section('head')
-<title>ตะกร้าสินค้า</title>
+    <title>ตะกร้าสินค้า</title>
 @endsection
 
 @section('content')
-<div class="2-columns ecommerce-application navbar-floating footer-static">
-<div class="app-content content">
-        <div class="content-wrapper">
-            <div class="content-header row">
-                <div class="content-header-left col-md-9 col-12 mb-2">
-                    <div class="row breadcrumbs-top">
-                        <div class="col-12">
+    <div class="2-columns ecommerce-application navbar-floating footer-static">
+        <div class="app-content content">
+            <div class="content-wrapper">
+                <div class="content-header row">
+                    <div class="content-header-left col-md-9 col-12 mb-2">
+                        <div class="row breadcrumbs-top">
+                            {{-- <div class="col-12">
                             <h2 class="content-header-title float-left mb-0">ตะกร้าสินค้า</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
@@ -66,33 +69,72 @@
                                     <li class="breadcrumb-item active">ตะกร้าสินค้า
                                 </ol>
                             </div>
+                        </div> --}}
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-body">
-               
+                <div class="content-body">
+
                     <!-- Checkout Place order starts -->
-                    <h6><i class="step-icon step feather icon-shopping-cart"></i> ตะกร้าสินค้า</h6>
+                    {{-- <h6><i class="step-icon step feather icon-shopping-cart"></i> ตะกร้าสินค้า</h6> --}}
                     <fieldset class="checkout-step-1 px-0">
                         <section id="place-order" class="list-view product-checkout">
                             <div class="checkout-items">
                                 @foreach ($cartItems as $cart)
-                                <div class="card ecommerce-card">
-                                    <div class="card-content">
-                                        <div class="item-img text-center">
-                                            
-                                                <img src="{{ asset('images/' . $cart->attributes->image) }}" width="170" height="200">
-                                         
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                {{ $cart->name }}
-                                                <span></span>
+                                    <div class="card ecommerce-card">
+                                        <div class="card-content">
+                                            <div class="card-body" >
+                                            <div class="item-img text-center">
+                                                <img src="{{ asset('images/' . $cart->attributes->image) }}" class="img-fluid" alt="img-placeholder" >
                                             </div>
-                                            <div class="item-quantity">
-                                                <p class="quantity-title">จำนวน</p>
-                                                <form action="{{ route('cartUpdate.user') }}" method="POST">
+                                        </div>
+
+
+                                            {{-- <div class="item-img text-center">
+                                                <a href="app-ecommerce-details.html">
+                                                    <img src="../../../app-assets/images/pages/eCommerce/1.png" class="img-fluid" alt="img-placeholder">
+                                                </a>
+                                            </div> --}}
+
+                                            {{-- <div class="users-view-image">
+                                                <img src="../../../app-assets/images/portrait/small/avatar-s-12.jpg" class="users-avatar-shadow w-100 rounded mb-2 pr-2 ml-1" alt="avatar">
+                                            </div> --}}
+
+                                            <div class="card-body">
+                                                <div class="item-name">
+                                                    {{ $cart->name }}
+                                                    <span></span>
+                                                </div>
+                                                <div class="item-quantity">
+                                                    <p class="quantity-title">จำนวน</p>
+                                                    <form action="{{ route('cartUpdate.user') }}" method="POST">
+                                                        @csrf
+                                                        <div class="pl-md-0 pl-2">
+                                                            <div class="num-block skin-2" >
+                                                                <div class="num-in">
+                                                                    <button class="minus dis"  style="width 22px; wi" ></button>
+                                                                    <input type="hidden" name="id"
+                                                                        value="{{ $cart->id }}">
+                                                                    <input type="text" class="in-num" readonly
+                                                                        name="quantity"
+                                                                        value="{{ $cart->quantity }}"class="w-6 text-center bg-gray-300" />
+                                                                    <button class="plus"></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="submit"  id="submit" class="btn btn-primary mr-1 waves-effect waves-light">ยืนยันการเพิ่มจำนวนสินค้า</button>
+                                                    </form>
+                                                </div>
+
+
+                                                {{-- <div class="item-quantity">
+
+                                                <div class="input-group quantity-counter-wrapper">
+                                                    <input type="text" class="quantity-counter" value="1">
+                                                </div>
+                                            </div> --}}
+
+                                                {{-- <form action="{{ route('cartUpdate.user') }}" method="POST">
                                                     @csrf
                                                     <div class="pl-md-0 pl-2">
                                                         <div class="num-block skin-2">
@@ -107,34 +149,32 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <button type="submit" id="submit">ยืนยัน</button>
                                                 </form>
+                                            </div> --}}
+
+
+
                                             </div>
-                                        </div>
-                                        <div class="item-options text-center">
-                                            <div class="item-wrapper">
-                                                <div class="item-cost">
-                                                    <h6 class="item-price">
-                                                        {{ $cart->price }} บาท
-                                                    </h6>
-                                                    <p class="shipping">
-                                                        <i class="feather icon-shopping-cart"></i> ส่งฟรี
-                                                    </p>
+                                            <div class="item-options text-center">
+                                                <div class="item-wrapper">
+                                                    <div class="item-cost">
+                                                        <h6 class="item-price">
+                                                            {{ $cart->price }} บาท
+                                                        </h6>
+
+                                                    </div>
                                                 </div>
+                                                <form action="{{ route('cartremove.user') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" value="{{ $cart->id }}" name="id" type="submit">
+                                                    <button  class=" btn btn-Light btn-block wishlist" type="submit"><i class="feather icon-x align-middle"></i> ลบจากรายการ</button>
+                                                </form>
+
                                             </div>
-                                            <form action="{{ route('cartremove.user') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" value="{{ $cart->id }}" name="id">
-                                           <div class="wishlist">
-                                           <button type="submit"><i class="feather icon-x align-middle"></i> ลบจากรายการ</button>
-                                            </div> 
-                                      
-                                        </form>
-                                             
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                             <div class="checkout-options">
@@ -142,51 +182,64 @@
                                     <div class="card-content">
                                         <div class="card-body">
 
-                                            
+
                                             <div class="price-details">
-                                                <p>Price Details</p>
+                                                <p>รายละเอียด ราคา</p>
                                             </div>
                                             <div class="detail">
                                                 <div class="detail-title">
-                                                    Total
+                                                   ยอดรวม
                                                 </div>
                                                 <div class="detail-amt">
-                                               
+
                                                     {{ Cart::getTotal() }} บาท
-                                                
+
                                                 </div>
                                             </div>
                                             <div class="detail">
                                                 <div class="detail-title">
-                                                    Delivery Charges
+                                                    ค่าจัดส่ง
                                                 </div>
                                                 <div class="detail-amt discount-amt">
-                                                    Free
+                                                    ฟรี
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="detail">
-                                                <div class="detail-title detail-total">Total</div>
+                                                <div class="detail-title detail-total">ยอดรวมสุทธิ : </div>
                                                 <div class="detail-amt total-amt">{{ Cart::getTotal() }} บาท</div>
                                             </div>
-                                           
-                                            <!-- <div class="btn btn-primary btn-block place-order">PLACE ORDER</div> -->
+                                            {{-- <div class="btn btn-primary btn-block place-order">PLACE ORDER</div>
+                                            <div class="btn btn-primary btn-block place-order">PLACE ORDER</div> --}}
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+
+
+                                <div class="checkout-options">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="card-body">
                                                 <form action="{{ route('cartClear.user') }}" method="POST">
                                                     @csrf
-                                                    <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
+                                                    <button class="btn btn-primary btn-block place-order">ลบรายการทั้งหมด :</button>
                                                 </form>
+
+    <hr>
+
+                                                <div class="btn btn-primary btn-block delivery-address">
+                                                    <a href="{{ route('checkout') }}" style="color:#FFFFFF;">เลือกที่อยู่นี้</a>
+                                                    </div>
                                             </div>
-                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </section>
                     </fieldset>
                     <!-- Checkout Place order Ends -->
 
                     <!-- Checkout Customer Address Starts -->
-                    <h6><i class="step-icon step feather icon-home"></i> เลือกที่อยู่</h6>
+                    {{-- <h6><i class="step-icon step feather icon-home"></i> เลือกที่อยู่</h6>
                     <fieldset class="checkout-step-2 px-0">
                         <section id="checkout-address" class="list-view product-checkout">
                             <div class="card">
@@ -277,52 +330,52 @@
                                 </div>
                             </div>
                         </section>
-                    </fieldset>
+                    </fieldset> --}}
 
                     <!-- Checkout Customer Address Ends -->
-                </form>
+                    </form>
 
+                </div>
             </div>
         </div>
     </div>
-    </div>
-    @endsection
-
-
-    @section('script')
-    <script>$(document).ready(function() {
-                            $('.num-in button').click(function() {
-                                var $input = $(this).parents('.num-block').find('input.in-num');
-                                if ($(this).hasClass('minus')) {
-                                    var count = parseFloat($input.val()) - 1;
-
-                                    count = count < 1 ? 1 : count;
-
-                                    if (count < 2) {
-                                        $(this).addClass('dis');
-                                    } else {
-                                        $(this).removeClass('dis');
-                                    }
-
-                                    $input.val(count);
-
-                                    // $('#submit').click();
-                                } else {
-                                    var count = parseFloat($input.val()) + 1
-                                    $input.val(count);
-
-                                    // $('#submit').click();
-
-                                    if (count > 1) {
-                                        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
-                                    }
-                                }
-
-                                $input.change();
-                                return false;
-                            });
-
-                        });
-                    </script>
 @endsection
 
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('.num-in button').click(function() {
+                var $input = $(this).parents('.num-block').find('input.in-num');
+                if ($(this).hasClass('minus')) {
+                    var count = parseFloat($input.val()) - 1;
+
+                    count = count < 1 ? 1 : count;
+
+                    if (count < 2) {
+                        $(this).addClass('dis');
+                    } else {
+                        $(this).removeClass('dis');
+                    }
+
+                    $input.val(count);
+
+                    // $('#submit').click();
+                } else {
+                    var count = parseFloat($input.val()) + 1
+                    $input.val(count);
+
+                    // $('#submit').click();
+
+                    if (count > 1) {
+                        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
+                    }
+                }
+
+                $input.change();
+                return false;
+            });
+
+        });
+    </script>
+@endsection
