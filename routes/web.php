@@ -111,3 +111,6 @@ Route::post('/cart-add', [App\Http\Controllers\CartController::class, 'addToCart
 Route::post('/cart-remove', [App\Http\Controllers\CartController::class, 'removeCart'])->name('cartremove.user');
 Route::post('/cart-clear', [App\Http\Controllers\CartController::class, 'clearAllCart'])->name('cartClear.user');
 Route::post('/cart-update', [App\Http\Controllers\CartController::class, 'updateCart'])->name('cartUpdate.user');
+
+
+Route::get('/qrcode', [App\Http\Controllers\QRcodeController::class, 'index'])->name('qrcode');

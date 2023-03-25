@@ -645,6 +645,7 @@
     <script src="{{ asset('app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/charts/chart-chartjs.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/pages/app-ecommerce-shop.js') }}"></script>
+    
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>

@@ -82,12 +82,17 @@
                             <div class="checkout-items">
                                 @foreach ($cartItems as $cart)
                                     <div class="card ecommerce-card">
+
                                         <div class="card-content">
                                             <div class="card-body" >
                                             <div class="item-img text-center">
                                                 <img src="{{ asset('images/' . $cart->attributes->image) }}" class="img-fluid" alt="img-placeholder" >
                                             </div>
                                         </div>
+
+
+
+
 
 
                                             {{-- <div class="item-img text-center">
