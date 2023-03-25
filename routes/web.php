@@ -103,6 +103,7 @@ Route::post('/address-user-store', [App\Http\Controllers\AddressUserController::
 
 //user-Bill
 Route::get('/Bill-Info', [App\Http\Controllers\BillUserInfoController::class, 'index'])->name('billUserInfo');
+Route::get('/Bill-Info', [App\Http\Controllers\BillUserInfoController::class, 'cartList'])->name('billUserInfo');
 Route::get('/List-Bill', [App\Http\Controllers\BillUserController::class, 'index'])->name('billUserList');
 
 //user-cart

@@ -43,9 +43,6 @@
             border: none;
             text-align: center;
         }
-
-
-
     </style>
 @endsection
 
@@ -84,11 +81,12 @@
                                     <div class="card ecommerce-card">
 
                                         <div class="card-content">
-                                            <div class="card-body" >
-                                            <div class="item-img text-center">
-                                                <img src="{{ asset('images/' . $cart->attributes->image) }}" class="img-fluid" alt="img-placeholder" >
+                                            <div class="card-body">
+                                                <div class="item-img text-center">
+                                                    <img src="{{ asset('images/' . $cart->attributes->image) }}"
+                                                        class="img-fluid" alt="img-placeholder">
+                                                </div>
                                             </div>
-                                        </div>
 
 
 
@@ -115,9 +113,10 @@
                                                     <form action="{{ route('cartUpdate.user') }}" method="POST">
                                                         @csrf
                                                         <div class="pl-md-0 pl-2">
-                                                            <div class="num-block skin-2" >
+                                                            <div class="num-block skin-2">
                                                                 <div class="num-in">
-                                                                    <button class="minus dis"  style="width 22px; wi" ></button>
+                                                                    <button class="minus dis"
+                                                                        style="width 22px; wi"></button>
                                                                     <input type="hidden" name="id"
                                                                         value="{{ $cart->id }}">
                                                                     <input type="text" class="in-num" readonly
@@ -127,7 +126,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit"  id="submit" class="btn btn-primary mr-1 waves-effect waves-light">ยืนยันการเพิ่มจำนวนสินค้า</button>
+                                                        <button type="submit" id="submit"
+                                                            class="btn btn-primary mr-1 waves-effect waves-light">ยืนยันการเพิ่มจำนวนสินค้า</button>
                                                     </form>
                                                 </div>
 
@@ -173,8 +173,10 @@
                                                 </div>
                                                 <form action="{{ route('cartremove.user') }}" method="POST">
                                                     @csrf
-                                                    <input type="hidden" value="{{ $cart->id }}" name="id" type="submit">
-                                                    <button  class=" btn btn-Light btn-block wishlist" type="submit"><i class="feather icon-x align-middle"></i> ลบจากรายการ</button>
+                                                    <input type="hidden" value="{{ $cart->id }}" name="id"
+                                                        type="submit">
+                                                    <button class=" btn btn-Light btn-block wishlist" type="submit"><i
+                                                            class="feather icon-x align-middle"></i> ลบจากรายการ</button>
                                                 </form>
 
                                             </div>
@@ -191,9 +193,101 @@
                                             <div class="price-details">
                                                 <p>รายละเอียด ราคา</p>
                                             </div>
+
+
+                                            {{-- <div class="detail">
+                                                <div class="detail-title">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th>รายการสินค้า</th>
+                                                        <th>จำนวน</th>
+                                                        <th>ราคาต่อหน่วย</th>
+                                                        <th>รวม</th>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($cartItems as $cart)
+                                                        <tr>
+                                                            <td>{{ $cart->name }}</td>
+                                                            <td>{{ $cart->quantity }}</td>
+                                                            <td>{{ $cart->price }}</td>
+                                                            <td>{{ ($cart->quantity) * ($cart->price) }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </div>
+                                        </div> --}}
+
+                                            {{-- <div class="detail">
+                                            <div class="detail-title">
+                                                @foreach ($cartItems as $cart)
+                                                <td>{{ $cart->name }}</td>
+                                            </div>
+                                            <div class="detail-amt">
+                                                <td> {{ ($cart->quantity) * ($cart->price) }} บาท</td>
+                                                @endforeach
+                                            </div>
+                                        </div> --}}
+
+
+
+                                            {{-- <div class="detail">
+                                                @foreach ($cartItems as $cart)
+                                                    <div class="detail-title">
+                                                        {{ $cart->name }}</ </div>
+                                                        <div class="detail-amt">
+
+                                                            {{ $cart->quantity * $cart->price }} บาท
+
+                                                        </div>
+                                                @endforeach
+                                            </div> --}}
+
+
+                                            {{-- <div class="detail">
+                                                <div class="detail-title">
+                                               จำนวนสินค้า
+                                                </div>
+                                                <div class="detail-amt">
+                                                    {{ Cart::getTotalQuantity() }} ชิ้น
+                                                </div>
+                                            </div> --}}
+
+
+                                            @foreach ($cartItems as $cart)
+                                            <div class="detail">
+                                            <div class="detail-amt">
+                                              {{ $cart->name }}
+                                            </div>
+                                            <div class="detail-amt">
+                                                {{ ($cart->price)}} x
+                                                {{ ($cart->quantity)}}
+                                            </div>
+                                              <div class="detail-amt">
+                                                {{ ($cart->quantity) * ($cart->price) }} บาท
+                                            </div>
+                                        </div>
+                                        @endforeach
+
+
+
+
                                             <div class="detail">
                                                 <div class="detail-title">
-                                                   ยอดรวม
+                                               จำนวนสินค้า
+                                                </div>
+                                                <div class="detail-amt">
+                                                    {{ Cart::getTotalQuantity() }} ชิ้น
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div class="detail">
+                                                <div class="detail-title">
+                                                    ยอดรวม
                                                 </div>
                                                 <div class="detail-amt">
 
@@ -201,21 +295,26 @@
 
                                                 </div>
                                             </div>
+
+
+
+
                                             <div class="detail">
                                                 <div class="detail-title">
                                                     ค่าจัดส่ง
                                                 </div>
                                                 <div class="detail-amt discount-amt">
-                                                    ฟรี
+                                                    {{ (Cart::getTotal() * 30) / 100 }} บาท
                                                 </div>
                                             </div>
                                             <hr>
                                             <div class="detail">
                                                 <div class="detail-title detail-total">ยอดรวมสุทธิ : </div>
-                                                <div class="detail-amt total-amt">{{ Cart::getTotal() }} บาท</div>
+                                                <div class="detail-amt total-amt">{{ (Cart::getTotal() * 130) / 10 }} บาท</div>
                                             </div>
                                             {{-- <div class="btn btn-primary btn-block place-order">PLACE ORDER</div>
                                             <div class="btn btn-primary btn-block place-order">PLACE ORDER</div> --}}
+
                                         </div>
                                     </div>
                                 </div>
@@ -227,14 +326,16 @@
                                             <div class="card-body">
                                                 <form action="{{ route('cartClear.user') }}" method="POST">
                                                     @csrf
-                                                    <button class="btn btn-primary btn-block place-order">ลบรายการทั้งหมด :</button>
+                                                    <button class="btn btn-primary btn-block place-order">ลบรายการทั้งหมด
+                                                        :</button>
                                                 </form>
 
-    <hr>
+                                                <hr>
 
                                                 <div class="btn btn-primary btn-block delivery-address">
-                                                    <a href="{{ route('checkout') }}" style="color:#FFFFFF;">เลือกที่อยู่นี้</a>
-                                                    </div>
+                                                    <a href="{{ route('checkout') }}"
+                                                        style="color:#FFFFFF;">เลือกที่อยู่นี้</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -382,5 +483,6 @@
             });
 
         });
+        
     </script>
 @endsection

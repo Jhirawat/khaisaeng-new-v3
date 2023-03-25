@@ -10,4 +10,11 @@ class BillUserInfoController extends Controller
     {
         return view('user.billinfo');
     }
+
+    public function cartList()
+    {
+        $cartItems = \Cart::getContent();
+        // dd($cartItems);
+        return view('user.billinfo', compact('cartItems'));
+    }
 }

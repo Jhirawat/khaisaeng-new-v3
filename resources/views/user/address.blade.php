@@ -34,7 +34,7 @@
 
                     <!-- Checkout Customer Address Starts -->
                     <h6><i class="step-icon step feather icon-home"></i>ที่อยู่ของคุณ</h6>
-                    
+
                     <fieldset class="checkout-step-2 px-0">
                         <section id="checkout-address" class="list-view product-checkout">
                             <div class="card">
@@ -45,34 +45,34 @@
                                   <div class="card-content">
                                     <div class="card-body">
                                 <form action="{{ route('store.useraddress') }}" method="POST" enctype="multipart/form-data">
-                                <fieldset>                       
+                                <fieldset>
                                     @csrf
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
                                                     <label for="checkout-name">ชื่อจริง:</label>
-                                                    <input type="text" class="form-control required" 
+                                                    <input type="text" class="form-control required"
                                                     name="name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
                                                     <label for="checkout-number">หมายเลขโทรศัพท์:</label>
-                                                    <input type="number" class="form-control required" 
+                                                    <input type="number" class="form-control required"
                                                     name="phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
                                                     <label for="checkout-apt-number">บ้านเลขที่:</label>
-                                                    <input type="text" class="form-control required" 
+                                                    <input type="text" class="form-control required"
                                                     name="address">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
                                                     <label for="checkout-landmark">รายละเอียดเพิ่มเติม:</label>
-                                                    <input type="text" class="form-control required" 
+                                                    <input type="text" class="form-control required"
                                                     name="address_addon">
                                                 </div>
                                             </div>
@@ -87,14 +87,14 @@
                                                 <div class="form-group">
                                                     <label for="checkout-pincode">รหัสไปรษณีย์:</label>
 
-                                                    <input type="number" class="form-control required" 
+                                                    <input type="number" class="form-control required"
                                                     name="province_code">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
-                                                    <label for="checkout-state">จังหวัด:</label>
-                                                    <input type="text" class="form-control required" 
+                                                    <label for="checkout-state">จังหวัด: (เชียงใหม่ ส่งฟรี)</label>
+                                                    <input type="text" class="form-control required"
                                                     name="province">
                                                 </div>
                                             </div>
@@ -108,21 +108,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button style="background-color: #257d0f ;color:white" class="btn" 
-                                href=""  
+                                        <button style="background-color: #257d0f ;color:white" class="btn"
+                                href=""
                                 type="submit">บันทึกที่อยู่</button>
                                     </div>
                                 </div>
                                 </fieldset>
-                                
+
                                          </div>
                                  </form>
-                            
+
                             </section>
                         </fieldset>
-                
+
                     <!-- Checkout Customer Address Ends -->
-                    
+
                      <!-- ShowAddressLL start -->
                      <div class="row justify-content-center">
                          <div class="col-12">
@@ -135,12 +135,12 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="item-wrapper">
-                                       
+
                                         <div class="card-header">
                                         <h4 class="card-title">{{ $add->name }}</h4>
-                                  
+
                                         </div>
-                                        
+
                                     </div>
                                     <hr>
                                     <p class="mb-0">{{ $add->address }}  {{ $add->address_addon}}</p>
@@ -156,23 +156,23 @@
                                     <hr>
                                             <div class="btn btn-primary btn-block delivery-address">แก้ไขที่อยู่</div>
                                 </div>
-                                
-                                    
+
+
                                 </div>
                             </div>
                         </div>
                         </div>
                         @endforeach
-      
+
                         </div>
                     </section>
                         </div>
-                
+
 
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('script')
@@ -200,7 +200,7 @@
             province.value = data.province;
 
             let address_type = document.getElementById('address_type')
-            address_type.value = data.address_type;  
+            address_type.value = data.address_type;
     }
     // console.log(data);
 </script>

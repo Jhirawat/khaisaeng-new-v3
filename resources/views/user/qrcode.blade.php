@@ -44,119 +44,89 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">กรุณาอัพโหลดหลักฐานการโอนเงิน</h4>
-                                        </div>
-                                        <div class="card-content">
-                                            <div class="card-body">
-                                                <form class="form form-horizontal">
-                                                    <div class="form-body">
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div class="form-group row">
-                                                                    <div class="col-md-4">
-                                                                        <span>หลักฐานการโอน :</span>
-                                                                    </div>
 
-                                                                    {{--
-                                                                        <div class="col-sm-6">
-                                                                            <div class="form-group">
-                                                                                <label for="name"
-                                                                                    class="form-label">ชื่อรายการสินค้า
-                                                                                </label>
-                                                                                <input type="text" class="form-control"
-                                                                                    name="name"
-                                                                                    placeholder="ชื่อรายการสินค้า" />
-                                                                            </div>
-                                                                        </div>
-                                                                         --}}
-                                                                    <div class="col-md-8">
-                                                                        <div class="position-relative has-icon-left">
-                                                                            {{-- <input type="text" id="fname-icon" class="form-control" name="fname-icon" placeholder="First Name">
-                                                                                <div class="form-control-position">
-                                                                                    <i class="feather icon-user"></i>
-                                                                                </div> --}}
-                                                                            {{-- <label for="image"
-                                                                                class="form-label">รูป</label> --}}
-                                                                            <input type="file" class="form-control"
-                                                                                name="image"
-                                                                                placeholder="กดเพื่ออัพโหลรูป" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="form-group row">
-                                                                    <div class="col-md-4">
-                                                                        <span>วันที่ชำระเงิน :</span>
-                                                                    </div>
-                                                                    <div class="col-md-8">
-                                                                        <div class="position-relative has-icon-left">
-                                                                            <input type="email" id="email-icon"
-                                                                                class="form-control" name="email-id-icon"
-                                                                                placeholder="Email">
-                                                                            <div class="form-control-position">
-                                                                                <i class="feather icon-mail"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="form-group row">
-                                                                    <div class="col-md-4">
-                                                                        <span>เวลที่โอนเงิน :</span>
-                                                                    </div>
-                                                                    <div class="col-md-8">
-                                                                        <div class="position-relative has-icon-left">
-                                                                            <input type="number" id="contact-icon"
-                                                                                class="form-control" name="contact-icon"
-                                                                                placeholder="Mobile">
-                                                                            <div class="form-control-position">
-                                                                                <i class="feather icon-smartphone"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="form-group row">
-                                                                    <div class="col-md-4">
-                                                                        <span>จำนวนเงิน :</span>
-                                                                    </div>
-                                                                    <div class="col-md-8">
-                                                                        <div class="position-relative has-icon-left">
-                                                                            <input type="number" id="contact-icon"
-                                                                                class="form-control" name="contact-icon"
-                                                                                placeholder="Mobile">
-                                                                            <div class="form-control-position">
-                                                                                <i class="feather icon-smartphone"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-
-
-                                                            <div class="col-md-8 offset-md-4">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary mr-1 mb-1">Submit</button>
-                                                                <button type="reset"
-                                                                    class="btn btn-outline-warning mr-1 mb-1">Reset</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </section>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">กรุณาอัพโหลดหลักฐานการโอนเงิน</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form form-horizontal">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>หลักฐานการโอน :</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                    <input type="file" class="form-control"
+                                                                        name="image" placeholder="กดเพื่ออัพโหลรูป" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>วันที่ชำระเงิน :</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="datepicker"  placeholder="วันที่ :">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>เวลที่โอนเงิน :</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group ">
+                                                                    <input type="text" class="form-control "
+                                                                        id="time"
+                                                                        placeholder="ตัวอย่างการกรอกเวลา 08.30" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>จำนวนเงิน :</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group ">
+                                                                    <input type="text" class="form-control "
+
+                                                                        placeholder="กรุณากรอกตามจำนวนเงินให้ตรง" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <div class="col-md-8 offset-md-4">
+                                                        <button type="submit"
+                                                            class="btn btn-primary mr-1 mb-1">Submit</button>
+                                                        <button type="reset"
+                                                            class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
 
@@ -168,6 +138,23 @@
 
 @section('script')
     <script>
-   
+        $(document).ready(function() {
+            // Datepicker
+            $('#datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                language: 'th',
+                autoclose: true
+            });
+
+            // Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT',
+                locale: 'th',
+                icons: {
+                    up: 'fas fa-chevron-up',
+                    down: 'fas fa-chevron-down'
+                }
+            });
+        });
     </script>
 @endsection

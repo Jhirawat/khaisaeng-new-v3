@@ -16,11 +16,8 @@
     </style>
 @endsection
 
-@section('head')
-<title>รายละเอียดใบเสร็จ</title>
-@endsection
-
 @section('content')
+
     {{-- start form --}}
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -52,22 +49,32 @@
                 <section class="card invoice-page">
                     <div id="invoice-template" class="card-body">
                         <!-- Invoice Company Details -->
+                        <div class="text-center">
+                            {{-- <h1>ใบกำกับภาษี/ใบเสร็จรับเงิน</h1> --}}
+                            <h1>ใบเสร็จรับเงิน</h1>
+                        </div>
                         <div id="invoice-company-details" class="row">
                             <div class="col-sm-6 col-12 text-left pt-1">
                                 <div class="media pt-1">
-                                    <img src="https://media.discordapp.net/attachments/799538881258979358/1083277509405192232/Red_Retro_Doodle_Strawberry_Original_Fruit_Logo_2.png?width=312&height=312" alt="company logo" style="
+                                    <img src="https://media.discordapp.net/attachments/799538881258979358/1083277509405192232/Red_Retro_Doodle_Strawberry_Original_Fruit_Logo_2.png?width=312&height=312"
+                                        alt="company logo"
+                                        style="
                                     max-width: 150px;
                                 " />
                                 </div>
                             </div>
                             <div class="col-sm-6 col-12 text-right">
-                                <h1>Invoice</h1>
                                 <div class="invoice-details mt-2">
-                                    <h6>INVOICE NO.</h6>
-                                    <p>001/2019</p>
-                                    <h6 class="mt-2">INVOICE DATE</h6>
-                                    <p>10 Dec 2018</p>
+                                    <h6 class="mt-2"> วันที่</h6>
+                                    <div class="col text-right">{{ date('d/m/Y') }}</div>
                                 </div>
+
+                                <div> <button onclick="generateNumber()">
+                                        <h5>ORDER
+                                    </button></h5>
+                                    <p class="text" id="result"></p>
+                                </div>
+
                             </div>
                         </div>
                         <!--/ Invoice Company Details -->
@@ -75,30 +82,28 @@
                         <!-- Invoice Recipient Details -->
                         <div id="invoice-customer-details" class="row pt-2">
                             <div class="col-sm-6 col-12 text-left">
-                                <h5>Recipient</h5>
+                                <h5>รายละเอียดลูกค้า</h5>
                                 <div class="recipient-info my-2">
-                                    <p>Peter Stark</p>
-                                    <p>8577 West West Drive</p>
-                                    <p>Holbrook, NY</p>
-                                    <p>90001</p>
+                                    <p>คุณ ก</p>
+                                    <p>134 หมู่.4 ตำบล.บ่อแก้ว อำเภอ.สะเมิง จังหวัด.เชียงใหม่ 50250</p>
                                 </div>
                                 <div class="recipient-contact pb-2">
                                     <p>
                                         <i class="feather icon-mail"></i>
-                                        peter@mail.com
+                                        poomji@mail.com
                                     </p>
                                     <p>
                                         <i class="feather icon-phone"></i>
-                                        +91 988 888 8888
+                                        ติดต่อ 081-0334-xxx
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-12 text-right">
-                                <h5>Microsion Technologies Pvt. Ltd.</h5>
+                            <div class="col-sm-6 col-12 text-left">
+                                <h5>ร้านค้าผู้ให้บริการ</h5>
                                 <div class="company-info my-2">
-                                    <p>9 N. Sherwood Court</p>
-                                    <p>Elyria, OH</p>
-                                    <p>94203</p>
+                                    <p>คุณ กัณญาภัค พึ่งกิตตน </p>
+                                    <p>134 หมู่.4 ตำบล.บ่อแก้ว อำเภอ.สะเมิง จังหวัด.เชียงใหม่ 50250</p>
+
                                 </div>
                                 <div class="company-contact">
                                     <p>
@@ -107,12 +112,17 @@
                                     </p>
                                     <p>
                                         <i class="feather icon-phone"></i>
-                                        +91 999 999 9999
+                                        ติดต่อ 081-0334-xxx
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <!--/ Invoice Recipient Details -->
+
+
+
+
+
 
                         <!-- Invoice Items Details -->
                         <div id="invoice-items-details" class="pt-1 invoice-items-table">
@@ -121,30 +131,28 @@
                                     <table class="table table-borderless">
                                         <thead>
                                             <tr>
-                                                <th>TASK DESCRIPTION</th>
-                                                <th>HOURS</th>
-                                                <th>RATE</th>
-                                                <th>AMOUNT</th>
-                                            </tr>
+                                                <th>รายการสินค้า</th>
+                                                <th>จำนวน</th>
+                                                <th>ราคาต่อหน่วย</th>
+                                                <th>รวม</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Website Redesign</td>
-                                                <td>60</td>
-                                                <td>15 USD</td>
-                                                <td>90000 USD</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Newsletter template design</td>
-                                                <td>20</td>
-                                                <td>12 USD</td>
-                                                <td>24000 USD</td>
-                                            </tr>
+                                            @foreach ($cartItems as $cart)
+                                                <tr>
+                                                    <td>{{ $cart->name }}</td>
+                                                    <td>{{ $cart->quantity }}</td>
+                                                    <td>{{ $cart->price }}</td>
+                                                    <td>{{ ($cart->quantity) * ($cart->price) }}</td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div id="invoice-total-details" class="invoice-total-table">
                             <div class="row">
                                 <div class="col-7 offset-5">
@@ -152,16 +160,16 @@
                                         <table class="table table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <th>SUBTOTAL</th>
-                                                    <td>114000 USD</td>
+                                                    <th>ยอดรวมย่อย</th>
+                                                    <td>{{ Cart::getTotal() }} บาท</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>DISCOUNT (5%)</th>
-                                                    <td>5700 USD</td>
+                                                    <th>ค่าจัดส่ง (30%)</th>
+                                                    <td>{{ Cart::getTotal() * 30/100 }} บาท</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>TOTAL</th>
-                                                    <td>108300 USD</td>
+                                                    <th>ยอดรวม</th>
+                                                    <td>{{ Cart::getTotal() * 130/100 }} บาท</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -170,13 +178,15 @@
                             </div>
                         </div>
 
+
+
+
                         <!-- Invoice Footer -->
                         <div id="invoice-footer" class="text-right pt-3">
-                            <p>Transfer the amounts to the business amount below. Please include invoice number on your
-                                check.
-                            <p class="bank-details mb-0">
-                                <span class="mr-4">BANK: <strong>FTSBUS33</strong></span>
-                                <span>IBAN: <strong>G882-1111-2222-3333</strong></span>
+                            <p>ขอบคุณมากที่ให้โอกาสให้เราได้บริการคุณค่ะ/ครับ
+                                เราขอแสดงความนับถือและความชื่นชมที่สูงสุดให้กับท่านที่ไว้วางใจในบริการของเรา
+                                {{-- <span class="mr-4">BANK: <strong>FTSBUS33</strong></span>
+                                <span>IBAN: <strong>G882-1111-2222-3333</strong></span> --}}
                             </p>
                         </div>
                         <!--/ Invoice Footer -->
@@ -191,8 +201,22 @@
 @endsection
 
 @section('script')
-    <script></script>
+    <script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        document.getElementById("current-date").textContent = dd + '/' + mm + '/' + yyyy;
 
 
 
+        function generateNumber() {
+            // Generate a random number between 100000 and 999999
+            const randomNumber = Math.floor(Math.random() * 900000) + 100000;
+
+            // Display the result in the HTML element with id "result"
+            document.getElementById("result").innerHTML = "Your random number is: #" + randomNumber;
+        }
+    </script>
 @endsection
