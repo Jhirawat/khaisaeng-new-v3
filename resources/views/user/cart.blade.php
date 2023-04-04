@@ -310,7 +310,7 @@
                                             <hr>
                                             <div class="detail">
                                                 <div class="detail-title detail-total">ยอดรวมสุทธิ : </div>
-                                                <div class="detail-amt total-amt">{{ (Cart::getTotal() * 130) / 10 }} บาท</div>
+                                                <div class="detail-amt total-amt">{{ Cart::getTotal() * 130/100 }} บาท</div>
                                             </div>
                                             {{-- <div class="btn btn-primary btn-block place-order">PLACE ORDER</div>
                                             <div class="btn btn-primary btn-block place-order">PLACE ORDER</div> --}}
@@ -333,7 +333,10 @@
                                                 <hr>
 
                                                 <div class="btn btn-primary btn-block delivery-address">
-                                                    <a href="{{ route('checkout') }}"
+                                                    {{-- <a href="{{ route('checkout') }}"
+                                                        style="color:#FFFFFF;">เลือกที่อยู่นี้</a> --}}
+
+                                                        <a href="{{ route('checkout') }}"
                                                         style="color:#FFFFFF;">เลือกที่อยู่นี้</a>
                                                 </div>
                                             </div>
@@ -483,6 +486,6 @@
             });
 
         });
-        
+
     </script>
 @endsection

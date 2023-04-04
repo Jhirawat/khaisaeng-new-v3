@@ -160,7 +160,7 @@
                                         <table class="table table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <th>ยอดรวมย่อย</th>
+                                                    <th>ยอดรวม</th>
                                                     <td>{{ Cart::getTotal() }} บาท</td>
                                                 </tr>
                                                 <tr>
@@ -168,7 +168,7 @@
                                                     <td>{{ Cart::getTotal() * 30/100 }} บาท</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>ยอดรวม</th>
+                                                    <th>ยอดรวมสุทธิ</th>
                                                     <td>{{ Cart::getTotal() * 130/100 }} บาท</td>
                                                 </tr>
                                             </tbody>

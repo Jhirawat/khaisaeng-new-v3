@@ -112,15 +112,15 @@
                                                         </div>
                                                     </div>
 
-
+                                                    {{-- <button style="background-color: #257d0f ;color:white"
+                                                    class="btn" type="submit">Save</button> --}}
 
 
                                                     <div class="col-md-8 offset-md-4">
                                                         <button type="submit"
                                                             class="btn btn-primary mr-1 mb-1">Submit</button>
-                                                        <button type="reset"
-                                                            class="btn btn-outline-warning mr-1 mb-1">Reset</button>
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                         </form>

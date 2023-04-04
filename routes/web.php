@@ -115,3 +115,5 @@ Route::post('/cart-update', [App\Http\Controllers\CartController::class, 'update
 
 
 Route::get('/qrcode', [App\Http\Controllers\QRcodeController::class, 'index'])->name('qrcode');
+
+Route::get('/welcome', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
