@@ -17,7 +17,6 @@
 @endsection
 
 @section('content')
-
     {{-- start form --}}
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -142,7 +141,7 @@
                                                     <td>{{ $cart->name }}</td>
                                                     <td>{{ $cart->quantity }}</td>
                                                     <td>{{ $cart->price }}</td>
-                                                    <td>{{ ($cart->quantity) * ($cart->price) }}</td>
+                                                    <td>{{ $cart->quantity * $cart->price }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -153,9 +152,50 @@
 
 
 
-                        <div id="invoice-total-details" class="invoice-total-table">
-                            <div class="row">
-                                <div class="col-7 offset-5">
+
+
+                            <div class="card-group">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <h5 >การชำระเงิน (Condtions of Payments)</h5>
+                                    <div class="brand-list" id="brands">
+                                        <ul class="list-unstyled">
+                                            <div class="row">
+                                            <div class="col">
+                                            <li class="d-flex justify-content-between align-items-center py-25">
+                                                <span class="vs-checkbox-con vs-checkbox-primary">
+                                                    <input type="checkbox" value="false">
+                                                    <span class="vs-checkbox">
+                                                        <span class="vs-checkbox--check">
+                                                            <i class="vs-icon feather icon-check"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="">ชำระเงินผ่าน QRCode</span>
+                                                </span>
+                                            </li>
+                                        </div>
+                                            <div class="col">
+                                            <li class="d-flex justify-content-between align-items-center py-25">
+                                                <span class="vs-checkbox-con vs-checkbox-primary">
+                                                    <input type="checkbox" value="false">
+                                                    <span class="vs-checkbox">
+                                                        <span class="vs-checkbox--check">
+                                                            <i class="vs-icon feather icon-check"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="">
+                                                        ชำระเงินปลายทาง
+                                                    </span>
+                                                </span>
+                                            </li>
+                                        </div>
+                                    </div>
+                                        </ul>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="card">
                                     <div class="table-responsive">
                                         <table class="table table-borderless">
                                             <tbody>
@@ -164,34 +204,64 @@
                                                     <td>{{ Cart::getTotal() }} บาท</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>ค่าจัดส่ง (30%)</th>
-                                                    <td>{{ Cart::getTotal() * 30/100 }} บาท</td>
+                                                    <th>จำนวนภาษีมูลค่าเพิ่ม</th>
+                                                    <td>{{ (Cart::getTotal() * 7) / 107 }} บาท</td>
                                                 </tr>
                                                 <tr>
+                                                    <th>ค่าจัดส่ง (30%)</th>
+                                                    <td>{{ (Cart::getTotal() * 30) / 100 }} บาท</td>
+                                                </tr>
+
+                                                <tr>
                                                     <th>ยอดรวมสุทธิ</th>
-                                                    <td>{{ Cart::getTotal() * 130/100 }} บาท</td>
+                                                    <td>{{ (Cart::getTotal() * 130) / 100 }} บาท</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
+                              </div>
+
+                              <br />
+                              <br />
+                              
+                            <div class="card-group">
+                                <div class="card">
+
+                                    <div class="card-body">
+
+                                        <p class="card-text-center">"___________________________" <br> ผู้รับเงิน / Bill
+                                            Receiver Signature <br>วันที่ / Date "_____{{ date('d/m/Y') }}_____"</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <img class="card-img-top" src="http://www.americancivilwarstory.com/images/Coca-Cola_logo.svg.png" alt="Card image cap">
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text-center">"___________________________" <br> ผู้มีอำนาจลงนาม /
+                                            Authorized Signature <br>วันที่ / Date "_____{{ date('d/m/Y') }}_____"</p>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
 
 
-
-                        <!-- Invoice Footer -->
-                        <div id="invoice-footer" class="text-right pt-3">
-                            <p>ขอบคุณมากที่ให้โอกาสให้เราได้บริการคุณค่ะ/ครับ
-                                เราขอแสดงความนับถือและความชื่นชมที่สูงสุดให้กับท่านที่ไว้วางใจในบริการของเรา
-                                {{-- <span class="mr-4">BANK: <strong>FTSBUS33</strong></span>
+                            <!-- Invoice Footer -->
+                            <div id="invoice-footer" class="text-right pt-3">
+                                <p>ขอบคุณมากที่ให้โอกาสให้เราได้บริการคุณค่ะ/ครับ
+                                    เราขอแสดงความนับถือและความชื่นชมที่สูงสุดให้กับท่านที่ไว้วางใจในบริการของเรา
+                                    {{-- <span class="mr-4">BANK: <strong>FTSBUS33</strong></span>
                                 <span>IBAN: <strong>G882-1111-2222-3333</strong></span> --}}
-                            </p>
-                        </div>
-                        <!--/ Invoice Footer -->
+                                </p>
+                            </div>
+                            <!--/ Invoice Footer -->
 
-                    </div>
+                        </div>
                 </section>
                 <!-- invoice page end -->
 

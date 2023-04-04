@@ -83,7 +83,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    {{-- <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <span>เวลที่โอนเงิน :</span>
@@ -110,7 +110,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     {{-- <button style="background-color: #257d0f ;color:white"
                                                     class="btn" type="submit">Save</button> --}}
@@ -120,7 +120,7 @@
                                                         <button type="submit"
                                                             class="btn btn-primary mr-1 mb-1">Submit</button>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </form>
