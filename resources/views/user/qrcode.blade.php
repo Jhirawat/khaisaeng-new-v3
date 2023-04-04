@@ -53,6 +53,67 @@
                                 <div class="card-header">
                                     <h4 class="card-title">กรุณาอัพโหลดหลักฐานการโอนเงิน</h4>
                                 </div>
+
+
+
+
+
+
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form action="{{ route('store-imageslip') }}" method="POST"
+                                            enctype="multipart/form-data"
+                                            class="number-tab-steps wizard-circle">
+                                            <fieldset>
+                                                @csrf
+
+
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>หลักฐานการโอน :</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                    <input type="file" class="form-control"
+                                                                        name="image_" placeholder="กดเพื่ออัพโหลรูป" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>วันที่ชำระเงิน :</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control"
+                                                                        id="datepicker"  placeholder="วันที่ :">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+
+
+                                            <div class="col-md-8 offset-md-4">
+                                                <button type="submit"
+                                                    class="btn btn-primary mr-1 mb-1">Submit</button>
+                                            </div>
+
+                                            {{-- <button style="background-color: #257d0f ;color:white"
+                                                class="btn" type="submit">Save</button> --}}
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+{{--
                                 <div class="card-content">
                                     <div class="card-body">
                                         <form class="form form-horizontal">
@@ -83,39 +144,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="col-12">
-                                                        <div class="form-group row">
-                                                            <div class="col-md-4">
-                                                                <span>เวลที่โอนเงิน :</span>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group ">
-                                                                    <input type="text" class="form-control "
-                                                                        id="time"
-                                                                        placeholder="ตัวอย่างการกรอกเวลา 08.30" >
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-group row">
-                                                            <div class="col-md-4">
-                                                                <span>จำนวนเงิน :</span>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <div class="form-group ">
-                                                                    <input type="text" class="form-control "
-
-                                                                        placeholder="กรุณากรอกตามจำนวนเงินให้ตรง" >
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> --}}
-
-                                                    {{-- <button style="background-color: #257d0f ;color:white"
-                                                    class="btn" type="submit">Save</button> --}}
-
-
                                                     <div class="col-md-8 offset-md-4">
                                                         <button type="submit"
                                                             class="btn btn-primary mr-1 mb-1">Submit</button>
@@ -125,7 +153,17 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> --}}
+
+
+
+
+
+
+
+
+
+
                             </div>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

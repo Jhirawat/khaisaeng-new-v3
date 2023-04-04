@@ -58,11 +58,11 @@ class ProductController extends Controller
 
             DB::beginTransaction();
             $table = new Product();
-            $table->name =  $request->name;
+            $table->name_product =  $request->name_product;
             // $table->image =  $request->image;
-            $table->price =  $request->price;
-            $table->description =  $request->description;
-            $table->category =  $request->category;
+            $table->price_product =  $request->price_product;
+            $table->description_product =  $request->description_product;
+            $table->category_product =  $request->category_product;
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');

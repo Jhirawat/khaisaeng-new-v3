@@ -328,26 +328,13 @@
 
 
 
-        // const qrcodeRadio = document.getElementById('qrcode');
-        // const cashRadio = document.getElementById('cash');
-
-        // continueBtn.addEventListener('click', function() {
-
-        //     if (qrcodeRadio.checked) {
-        //         window.location.href="{{ route('qrcode') }}";
-        //     } else if (cashRadio.checked) {
-        //         window.location.href="{{ route('billUserInfo') }}";
-        //     } else {
-        //         alert('Please select an option before continuing.');
-        //     }
-
-        // });
+        
 
         document.querySelector('.btn-cvv').addEventListener('click', function() {
         if (document.getElementById('qrcode').checked) {
             window.location.href = "{{ route('qrcode') }}";
         } else if (document.getElementById('cash').checked) {
-            window.location.href = "{{ route('billUserInfo') }}";
+            window.location.href = "{{ route('billUserdestination') }}";
         }
         else {
         alert('กรุณาเลือกวิธีการชำระเงินจากด้านล่างนี้ 1 ช่องทางขอบคุณครับ/ค่ะ');

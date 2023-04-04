@@ -130,6 +130,7 @@
                                     <table class="table table-borderless">
                                         <thead>
                                             <tr>
+                                                <th>ลำดับ</th>
                                                 <th>รายการสินค้า</th>
                                                 <th>จำนวน</th>
                                                 <th>ราคาต่อหน่วย</th>
@@ -138,6 +139,7 @@
                                         <tbody>
                                             @foreach ($cartItems as $cart)
                                                 <tr>
+                                                    <td>{{ $cart->id }}</td>
                                                     <td>{{ $cart->name }}</td>
                                                     <td>{{ $cart->quantity }}</td>
                                                     <td>{{ $cart->price }}</td>
@@ -162,22 +164,23 @@
                                         <ul class="list-unstyled">
                                             <div class="row">
                                             <div class="col">
-                                            <li class="d-flex justify-content-between align-items-center py-25">
-                                                <span class="vs-checkbox-con vs-checkbox-primary">
-                                                    <input type="checkbox" value="false">
-                                                    <span class="vs-checkbox">
+                                                <li class="d-flex justify-content-between align-items-center py-25">
+                                                    <span class="vs-checkbox-con vs-checkbox-primary">
+                                                      <input type="checkbox" value="true"  disabled>
+                                                      <span class="vs-checkbox">
                                                         <span class="vs-checkbox--check">
-                                                            <i class="vs-icon feather icon-check"></i>
+                                                          <i class="vs-icon feather icon-check"></i>
                                                         </span>
+                                                      </span>
+                                                      <span class="">ชำระเงินผ่าน QRCode</span>
                                                     </span>
-                                                    <span class="">ชำระเงินผ่าน QRCode</span>
-                                                </span>
-                                            </li>
+                                                  </li>
+
                                         </div>
                                             <div class="col">
                                             <li class="d-flex justify-content-between align-items-center py-25">
                                                 <span class="vs-checkbox-con vs-checkbox-primary">
-                                                    <input type="checkbox" value="false">
+                                                    <input type="checkbox" value="true" checked disabled>
                                                     <span class="vs-checkbox">
                                                         <span class="vs-checkbox--check">
                                                             <i class="vs-icon feather icon-check"></i>
@@ -224,7 +227,7 @@
 
                               <br />
                               <br />
-                              
+
                             <div class="card-group">
                                 <div class="card">
 
@@ -252,7 +255,7 @@
 
 
                             <!-- Invoice Footer -->
-                            <div id="invoice-footer" class="text-right pt-3">
+                            <div id="invoice-footer" class="text-center pt-3">
                                 <p>ขอบคุณมากที่ให้โอกาสให้เราได้บริการคุณค่ะ/ครับ
                                     เราขอแสดงความนับถือและความชื่นชมที่สูงสุดให้กับท่านที่ไว้วางใจในบริการของเรา
                                     {{-- <span class="mr-4">BANK: <strong>FTSBUS33</strong></span>

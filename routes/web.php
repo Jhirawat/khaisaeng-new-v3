@@ -45,6 +45,8 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->na
 
 
 
+Route::post('/store-imageslip', [App\Http\Controllers\QRCodeController::class, 'store'])->name('store-imageslip');
+
 //orderlist
 
 Route::get('/product-list', [App\Http\Controllers\Dashboard\AdminController::class, 'productList'])->name('products.list');
@@ -102,8 +104,10 @@ Route::get('/address-user', [App\Http\Controllers\AddressUserController::class, 
 Route::post('/address-user-store', [App\Http\Controllers\AddressUserController::class, 'store'])->name('store.useraddress');
 
 //user-Bill
-Route::get('/Bill-Info', [App\Http\Controllers\BillUserInfoController::class, 'index'])->name('billUserInfo');
-Route::get('/Bill-Info', [App\Http\Controllers\BillUserInfoController::class, 'cartList'])->name('billUserInfo');
+Route::get('/Bill-QRCode', [App\Http\Controllers\BillUserQRCodeController::class, 'index'])->name('billUserqrcode');
+Route::get('/Bill-QRCode', [App\Http\Controllers\BillUserQRCodeController::class, 'cartList'])->name('billUserqrcode');
+Route::get('/Bill-Destination', [App\Http\Controllers\BillUserDestinationController::class, 'index'])->name('billUserdestination');
+Route::get('/Bill-Destination', [App\Http\Controllers\BillUserDestinationController::class, 'cartList'])->name('billUserdestination');
 Route::get('/List-Bill', [App\Http\Controllers\BillUserController::class, 'index'])->name('billUserList');
 
 //user-cart

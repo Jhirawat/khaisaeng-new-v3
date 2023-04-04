@@ -14,7 +14,5 @@ class QRcode extends Model
         'name',
         'image',
         'date',
-        'time',
-        'amount'
     ];
 }

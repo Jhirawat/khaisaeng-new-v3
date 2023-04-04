@@ -481,7 +481,7 @@ select.form-control:not([multiple="multiple"]) {
     -webkit-transform: rotate(0);
     -ms-transform: rotate(0);
     transform: rotate(0);
-    border-color: #7367f0;
+    border-color: #000000;
 }
 .vs-checkbox-con input:checked ~ .vs-checkbox .vs-checkbox--check {
     -webkit-transform: translate(0);

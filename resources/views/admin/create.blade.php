@@ -55,7 +55,7 @@
                                                                                     class="form-label">ชื่อรายการสินค้า
                                                                                 </label>
                                                                                 <input type="text" class="form-control"
-                                                                                    name="name"
+                                                                                    name="name_product"
                                                                                     placeholder="ชื่อรายการสินค้า" />
                                                                             </div>
                                                                         </div>
@@ -65,7 +65,7 @@
                                                                                 <label for="image"
                                                                                     class="form-label">รูป</label>
                                                                                 <input type="file" class="form-control"
-                                                                                    name="image"
+                                                                                    name="image_product"
                                                                                     placeholder="กดเพื่ออัพโหลรูป" />
                                                                             </div>
                                                                         </div>
@@ -77,7 +77,7 @@
                                                                                 <label for="price"
                                                                                     class="form-label">ราคา</label>
                                                                                 <input type="number" class="form-control"
-                                                                                    name="price"
+                                                                                    name="price_product"
                                                                                     placeholder="ราคาสินค้า" />
                                                                             </div>
                                                                         </div>
@@ -88,7 +88,7 @@
 
                                                                             <div class="col-sm-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="category" class="form-label">เลือกประเภท</label>
+                                                                                    <label for="category_product" class="form-label">เลือกประเภท</label>
 
                                                                                     <select class="form-control" name="category">
                                                                                         <option value="">กรุณาเลือกประเภทสินค้า</option>
@@ -134,7 +134,7 @@
                                                                             <div class="form-group">
                                                                                 <label
                                                                                     for="shortDescription1">รายละเอียด:</label>
-                                                                                <textarea name="description" rows="5" class="form-control"></textarea>
+                                                                                <textarea name="description_product" rows="5" class="form-control"></textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>

@@ -289,8 +289,8 @@ select.form-control:not([multiple="multiple"]) {
   top: 0.08rem; }
 
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-  background-color: #7367f0;
-  border-color: #7367f0; }
+  background-color: #000000;
+  border-color: #000000; }
 
 /* Floating label Group */
 .form-label-group {
@@ -316,7 +316,7 @@ select.form-control:not([multiple="multiple"]) {
   .form-label-group > input, .form-label-group textarea {
     padding: .6rem; }
     .form-label-group > input:focus:not(:placeholder-shown) ~ label, .form-label-group > input:not(:active):not(:placeholder-shown) ~ label, .form-label-group textarea:focus:not(:placeholder-shown) ~ label, .form-label-group textarea:not(:active):not(:placeholder-shown) ~ label {
-      color: #7367f0 !important;
+      color: #000000 !important;
       transition: all .25s ease-in-out;
       opacity: 1; }
     .form-label-group > input:not(:focus):not(:placeholder-shown) ~ label, .form-label-group textarea:not(:focus):not(:placeholder-shown) ~ label {
@@ -346,10 +346,10 @@ select.form-control:not([multiple="multiple"]) {
     top: 0; }
     .vs-checkbox-con input:checked ~ .vs-checkbox {
       transform: rotate(0deg);
-      border-color: #7367f0; }
+      border-color: #000000; }
       .vs-checkbox-con input:checked ~ .vs-checkbox .vs-checkbox--check {
         transform: translate(0);
-        background-color: #7367f0; }
+        background-color: #000000; }
         .vs-checkbox-con input:checked ~ .vs-checkbox .vs-checkbox--check .vs-icon {
           transform: translate(0);
           line-height: 1.2;
@@ -360,7 +360,7 @@ select.form-control:not([multiple="multiple"]) {
         font-size: 1.2rem; }
     .vs-checkbox-con input:active:checked + .vs-checkbox .vs-checkbox--check {
       transform: translate(3px);
-      background-color: #7367f0; }
+      background-color: #000000; }
       .vs-checkbox-con input:active:checked + .vs-checkbox .vs-checkbox--check .vs-icon {
         opacity: 1;
         transform: translate(6px); }
@@ -422,8 +422,8 @@ select.form-control:not([multiple="multiple"]) {
       transform: rotate(0deg);
       outline: 0; }
       .vs-radio-con input:checked ~ .vs-radio .vs-radio--circle {
-        background: #7367f0;
-        box-shadow: 0 3px 12px 0 rgba(115, 103, 240, 0.4);
+        background: #000000;
+        box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.4);
         opacity: 1;
         transform: scale(1); }
       .vs-radio-con input:checked ~ .vs-radio .vs-radio--border {

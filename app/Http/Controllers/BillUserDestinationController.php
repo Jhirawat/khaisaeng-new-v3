@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BillUserInfoController extends Controller
+class BillUserDestinationController extends Controller
 {
     public function index()
     {
-        return view('user.billinfo');
+        return view('user.billdestination');
     }
 
     public function cartList()
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('user.billinfo', compact('cartItems'));
+        return view('user.billdestination', compact('cartItems'));
     }
 }
